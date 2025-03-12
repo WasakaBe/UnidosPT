@@ -23,6 +23,7 @@ import dashboard_styles from '@/app/styles/dashboardStyle'
 import noticias_styles from '@/app/styles/noticiasStyle'
 import consulta_saldo_styles from '@/app/styles/consultarSaldoStyle'
 import LoadingSpinner from '@/app/components/loadingSpinner'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 // Interfaces para TypeScript
 interface Plan {
@@ -147,7 +148,7 @@ const ProgressBar = ({
 }
 
 // Componente principal
-export default function ConsultarSaldo2() {
+export default function ConsultarLimitado() {
   const router = useRouter()
   const params = useLocalSearchParams()
   const idUsuario = params.idUsuario ? Number(params.idUsuario) : undefined
@@ -166,8 +167,8 @@ export default function ConsultarSaldo2() {
   const [datosPlan, setDatosPlan] = useState<DatosPlan | null>(null)
   const [plans, setPlans] = useState<Plan[]>([])
   const [loading, setLoading] = useState(true)
-  //const Telefono = '8124447352'
-  const Telefono = phoneNumber
+  const Telefono = '8124447352'
+  //const Telefono = phoneNumber
 
   const fetchData = useCallback(async () => {
     try {
@@ -254,6 +255,16 @@ export default function ConsultarSaldo2() {
   const Mensaje = restarSinRetorno(mensajes_iniciales, mensajes)
   const llamdas = restarSinRetorno(minutos_iniciales, minutos)
 
+  const handleLogout = async () => {
+    try {
+      await AsyncStorage.removeItem('userToken')
+      console.log('✅ Sesión cerrada correctamente')
+      router.replace('/screens/public/Login')
+    } catch (error) {
+      console.error('❌ Error al cerrar sesión:', error)
+    }
+  }
+
   return (
     <ImageBackground
       source={getBackgroundByIdPartido(Number(idPartido))}
@@ -262,10 +273,10 @@ export default function ConsultarSaldo2() {
       <View style={noticias_styles.subcontainer}>
         <TouchableOpacity
           style={noticias_styles.backButton}
-          onPress={() => router.back()}
+          onPress={handleLogout}
         >
           <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
-          <Text style={noticias_styles.backText}>Regresar</Text>
+          <Text style={noticias_styles.backText}>Cerrar Sesión</Text>
         </TouchableOpacity>
         <Text style={noticias_styles.tituloNoticia}>Consultar Saldo </Text>
         <Image

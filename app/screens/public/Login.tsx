@@ -120,7 +120,7 @@ const Login: React.FC<LoginProps> = ({
           console.log('🔑 Usuario ya autenticado, redirigiendo al Dashboard')
 
           if (payload.id === 7) {
-            router.replace('/screens/client/ConsultarSaldo2')
+            router.replace('/screens/client/ConsultarLimitado')
           } else {
             router.replace('/screens/client/Dashboard')
           }
@@ -185,7 +185,7 @@ const Login: React.FC<LoginProps> = ({
       setTimeout(() => {
         setModalConfig({ ...modalConfig, visible: false })
         if (payload.id === 7) {
-          router.replace('/screens/client/ConsultarSaldo2')
+          router.replace('/screens/client/ConsultarLimitado')
         } else {
           router.replace('/screens/client/Dashboard')
         }
