@@ -56,7 +56,6 @@ jobs:
           sentry-cli releases set-commits --auto $SENTRY_RELEASE
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          #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
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
