@@ -276,66 +276,67 @@ export default function Dashboard() {
           {/* Botones secundarios en 3x3 */}
           <View style={dashboard_styles.buttonGrid}>
             {idUsuario !== 7 ? (
-              <TouchableOpacity
-                style={dashboard_styles.secondaryButton}
-                onPress={() => {
-                  if (idUsuario && idPartido) {
-                    router.push({
-                      pathname: '/screens/client/Promociones',
-                      params: {
-                        idUsuario: idUsuario.toString(),
-                        idPartido: idPartido.toString(),
-                      },
-                    })
-                  } else {
-                    console.error(
-                      '❌ No se puede navegar: idUsuario o idPartido no están definidos'
-                    )
-                  }
-                }}
-              >
-                <View style={dashboard_styles.headerIcons}>
-                  <Image
-                    source={require('../../assets/iconos/PROMOCIONESYDESCUENTOS.png')}
-                    style={dashboard_styles.iconos}
-                  />
-                </View>
-                <Text style={dashboard_styles.secondaryButtonText}>
-                  Promociones y descuentos
-                </Text>
-              </TouchableOpacity>
+              <>
+                <TouchableOpacity
+                  style={dashboard_styles.secondaryButton}
+                  onPress={() => {
+                    if (idUsuario && idPartido) {
+                      router.push({
+                        pathname: '/screens/client/Promociones',
+                        params: {
+                          idUsuario: idUsuario.toString(),
+                          idPartido: idPartido.toString(),
+                        },
+                      })
+                    } else {
+                      console.error(
+                        '❌ No se puede navegar: idUsuario o idPartido no están definidos'
+                      )
+                    }
+                  }}
+                >
+                  <View style={dashboard_styles.headerIcons}>
+                    <Image
+                      source={require('../../assets/iconos/PROMOCIONESYDESCUENTOS.png')}
+                      style={dashboard_styles.iconos}
+                    />
+                  </View>
+                  <Text style={dashboard_styles.secondaryButtonText}>
+                    Promociones y descuentos
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={dashboard_styles.secondaryButton}
+                  onPress={() => {
+                    if (idUsuario && idPartido) {
+                      router.push({
+                        pathname: '/screens/client/Directorio',
+                        params: {
+                          idUsuario: idUsuario.toString(),
+                          idPartido: idPartido.toString(),
+                        },
+                      })
+                    } else {
+                      console.error(
+                        '❌ No se puede navegar: idUsuario o idPartido no están definidos'
+                      )
+                    }
+                  }}
+                >
+                  <View style={dashboard_styles.headerIcons}>
+                    <Image
+                      source={require('../../assets/iconos/DIRECTORIODESERVICIOS.png')}
+                      style={dashboard_styles.iconos}
+                    />
+                  </View>
+                  <Text style={dashboard_styles.secondaryButtonText}>
+                    Directorio Servicios
+                  </Text>
+                </TouchableOpacity>
+              </>
             ) : (
               <></>
             )}
-
-            <TouchableOpacity
-              style={dashboard_styles.secondaryButton}
-              onPress={() => {
-                if (idUsuario && idPartido) {
-                  router.push({
-                    pathname: '/screens/client/Directorio',
-                    params: {
-                      idUsuario: idUsuario.toString(),
-                      idPartido: idPartido.toString(),
-                    },
-                  })
-                } else {
-                  console.error(
-                    '❌ No se puede navegar: idUsuario o idPartido no están definidos'
-                  )
-                }
-              }}
-            >
-              <View style={dashboard_styles.headerIcons}>
-                <Image
-                  source={require('../../assets/iconos/DIRECTORIODESERVICIOS.png')}
-                  style={dashboard_styles.iconos}
-                />
-              </View>
-              <Text style={dashboard_styles.secondaryButtonText}>
-                Directorio Servicios
-              </Text>
-            </TouchableOpacity>
 
             {idUsuario !== 7 ? (
               <>
@@ -398,34 +399,7 @@ export default function Dashboard() {
                 </TouchableOpacity>
               </>
             ) : (
-              <TouchableOpacity
-                style={dashboard_styles.secondaryButton}
-                onPress={() => {
-                  if (idUsuario && idPartido) {
-                    router.push({
-                      pathname: '/screens/client/Invitacion',
-                      params: {
-                        idUsuario: idUsuario.toString(),
-                        idPartido: idPartido.toString(),
-                      },
-                    })
-                  } else {
-                    console.error(
-                      '❌ No se puede navegar: idUsuario o idPartido no están definidos'
-                    )
-                  }
-                }}
-              >
-                <View style={dashboard_styles.headerIcons}>
-                  <Image
-                    source={getLogoByIdPartido(userData?.id_partido)}
-                    style={dashboard_styles.iconos}
-                  />
-                </View>
-                <Text style={dashboard_styles.secondaryButtonText}>
-                  Invita a ser parte de
-                </Text>
-              </TouchableOpacity>
+              <></>
             )}
 
             {idUsuario !== 7 ? (

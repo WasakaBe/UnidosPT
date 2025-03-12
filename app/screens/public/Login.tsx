@@ -118,7 +118,12 @@ const Login: React.FC<LoginProps> = ({
           }
 
           console.log('🔑 Usuario ya autenticado, redirigiendo al Dashboard')
-          router.replace('/screens/client/Dashboard')
+
+          if (payload.id === 7) {
+            router.replace('/screens/client/ConsultarSaldo2')
+          } else {
+            router.replace('/screens/client/Dashboard')
+          }
         } catch (error) {
           console.warn('⚠️ No se pudo decodificar el token, eliminando...')
           await AsyncStorage.removeItem('userToken')
@@ -179,7 +184,11 @@ const Login: React.FC<LoginProps> = ({
       // Redirigir al Dashboard después de un pequeño delay
       setTimeout(() => {
         setModalConfig({ ...modalConfig, visible: false })
-        router.replace('/screens/client/Dashboard')
+        if (payload.id === 7) {
+          router.replace('/screens/client/ConsultarSaldo2')
+        } else {
+          router.replace('/screens/client/Dashboard')
+        }
       }, 1500)
     } catch (error: any) {
       console.log(error.message || 'Error en el inicio de sesión.')

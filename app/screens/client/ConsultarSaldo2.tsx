@@ -166,8 +166,8 @@ export default function ConsultarSaldo2() {
   const [datosPlan, setDatosPlan] = useState<DatosPlan | null>(null)
   const [plans, setPlans] = useState<Plan[]>([])
   const [loading, setLoading] = useState(true)
-  //const Telefono = '8124447352'
-  const Telefono = phoneNumber
+  const Telefono = '8124447352'
+  //const Telefono = phoneNumber
 
   const fetchData = useCallback(async () => {
     try {
