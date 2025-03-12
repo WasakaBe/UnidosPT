@@ -36,6 +36,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a1dbcaf4-f6ac-4c32-97b9-ea462f78a63b"
+      }
+    },
+    "owner": "alanwakaka"
   }
 }
