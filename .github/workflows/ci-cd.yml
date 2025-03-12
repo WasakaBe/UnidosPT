@@ -1,0 +1,80 @@
+name: CI/CD Unidos Pt 3
+
+on:
+  push:
+    branches:
+      - main # Ejecuta el pipeline al hacer push en la rama principal
+  pull_request:
+    branches:
+      - main # Ejecuta el pipeline en los pull requests hacia la rama principal
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      # 1. Chequear el repositorio
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Clona todo el historial de commits
+
+      # 2. Configurar Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Usa la versión que prefieras
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Configurar variables de entorno
+      - name: Setup .env variables
+        run: |
+          echo "API_URL=$API_URL" >> .env
+        env:
+          API_URL: ${{ secrets.API_URL }}
+
+      # 5. Verificar errores de TypeScript
+      - name: Check TypeScript
+        run: npx tsc --noEmit
+
+      # 6. Verificar que Expo CLI funcione
+      - name: Validate Expo Project
+        run: npx expo-doctor
+
+      # 7. Instalar CLI de Sentry
+      - name: Install Sentry CLI
+        run: npm install -g @sentry/cli
+
+      # 8. Crear una nueva versión en Sentry
+      - name: Create Sentry Release
+        run: |
+          export SENTRY_RELEASE=$(git rev-parse --short HEAD)
+          sentry-cli releases new $SENTRY_RELEASE
+          sentry-cli releases set-commits --auto $SENTRY_RELEASE
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      # 9. Subir Source Maps a Sentry
+      - name: Upload Source Maps to Sentry
+        run: |
+          export SENTRY_RELEASE=$(git rev-parse --short HEAD)
+          sentry-cli releases files $SENTRY_RELEASE upload-sourcemaps ./ --rewrite
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+
+      # 10. Finalizar la versión en Sentry
+      - name: Finalize Sentry Release
+        run: |
+          export SENTRY_RELEASE=$(git rev-parse --short HEAD)
+          sentry-cli releases finalize $SENTRY_RELEASE
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}

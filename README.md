@@ -1,50 +1,64 @@
-# Welcome to your Expo app 👋
+# 📱 Unidos PT
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 🏢 Empresa del Proyecto
 
-## Get started
+**Like Capital**  
+🔗 [Sitio Web](https://likephone.mx/)
 
-1. Install dependencies
+## 📖 Descripción del Proyecto
 
-   ```bash
-   npm install
-   ```
+**Unidos PT** es una aplicación móvil diseñada para el ámbito político, donde los partidos pueden interactuar con sus usuarios afiliados. La app permite gestionar noticias, reportes ciudadanos y conexiones entre afiliados, brindando herramientas de comunicación y participación.
 
-2. Start the app
+### 🔹 Funcionalidades Principales
 
-   ```bash
-    npx expo start
-   ```
+- 📰 **Noticias**: Publicaciones y eventos relacionados con el partido político.
+- 📢 **Reportes Ciudadanos**: Espacio para informar sobre situaciones de interés público.
+- 🔗 **Conéctate**: Sección donde los afiliados pueden subir post visibles solo para miembros del partido.
+- 💰 **Consultar Saldo**: Acceso a información financiera de afiliados.
+- 📂 **Directorio de Servicios**: Los afiliados pueden ofrecer servicios como plomería, carpintería, etc.
+- 👥 **Afiliación**: Funcionalidad para que los afiliados inviten a más personas (amigos, familiares, etc.).
+- 🎁 **Promociones y Descuentos**: Campañas del partido con promociones especiales (Ejemplo: Pollo asado al 2x1, recargas, etc.).
+- 📞 **Solicitud de Servicios**: Los afiliados pueden solicitar servicios directamente desde el CRM del partido.
 
-In the output, you'll find options to open the app in a
+## 🛠️ Tecnologías Utilizadas
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Frontend**: React Native Expo, TypeScript, Expo Router.
+- **Backend**: Node.js, Express.js.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🚀 Instalación y Ejecución
 
-## Get a fresh project
+### 1️⃣ Creación del Proyecto
 
-When you're ready, run:
+```sh
+npx create-expo-app UnidosPT
+```
 
-```bash
+### 2️⃣ Reinicio y Configuración del Proyecto
+
+```sh
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 3️⃣ Instalación de Dependencias
 
-## Learn more
+```sh
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 4️⃣ Iniciar el Proyecto en Expo
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```sh
+npx expo start
+```
 
-## Join the community
+### 🤖 Android app production:
 
-Join our community of developers creating universal apps.
+```sh
+https://expo.dev/artifacts/eas/3JjMsfb4FvFGFNHd1rDhnH.aab
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 🤖 Android app Internal:
+
+```sh
+https://expo.dev/accounts/alanwakaka/projects/unidosPT_tres/builds/1013ed4f-9c53-4261-ade2-3b3477038d85
+```
