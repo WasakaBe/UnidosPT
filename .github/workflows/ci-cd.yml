@@ -3,10 +3,10 @@ name: CI/CD Unidos Pt 3
 on:
   push:
     branches:
-      - main # Ejecuta el pipeline al hacer push en la rama principal
+      - master # Ejecuta el pipeline al hacer push en la rama principal
   pull_request:
     branches:
-      - main # Ejecuta el pipeline en los pull requests hacia la rama principal
+      - master # Ejecuta el pipeline en los pull requests hacia la rama principal
 
 jobs:
   build:
