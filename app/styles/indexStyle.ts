@@ -37,7 +37,7 @@ const index_styles = StyleSheet.create({
   underline: {
     width: Responsivo(40),
     height: Responsivo(0.5),
-    backgroundColor: '#4A90E2',
+    backgroundColor: '#750808',
     borderRadius: 2,
     marginTop: 8,
     shadowColor: '#4A90E2',

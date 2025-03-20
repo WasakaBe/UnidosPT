@@ -6,6 +6,7 @@ import {
   Animated,
   StatusBar,
   Image,
+  ImageBackground,
 } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Ionicons } from '@expo/vector-icons'
@@ -71,17 +72,15 @@ export default function Index() {
   }
 
   return (
-    <View style={index_styles.container}>
+    <ImageBackground
+      source={require('./assets/fondo_partidos/unidos_pt.png')}
+      style={index_styles.container}
+    >
       <StatusBar barStyle="light-content" />
-      <LinearGradient
-        colors={['#0A1931', '#0A1931', '#000000']}
-        style={index_styles.gradient}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      >
+      <View style={index_styles.gradient}>
         <BlurView intensity={20} style={index_styles.blurContainer}>
           <Image
-            source={require('./assets/logo_partidos/logo_porti.png')}
+            source={require('./assets/logo_partidos/LOGOTIPO VERTICAL.png')}
             style={index_styles.fotoii}
           />
           <Animated.View
@@ -151,7 +150,7 @@ export default function Index() {
             </TouchableOpacity>
           </Animated.View>
         </BlurView>
-      </LinearGradient>
-    </View>
+      </View>
+    </ImageBackground>
   )
 }

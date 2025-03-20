@@ -11,6 +11,7 @@ import {
   Keyboard,
   Image,
   ScrollView,
+  ImageBackground,
 } from 'react-native'
 import { useRouter } from 'expo-router'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -205,20 +206,15 @@ const Login: React.FC<LoginProps> = ({
   }
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    <ImageBackground
+      source={require('../../assets/fondo_partidos/unidos_pt.png')}
       style={login_styles.container}
     >
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         keyboardShouldPersistTaps="handled"
       >
-        <LinearGradient
-          colors={['#0A1931', '#0A1931', '#000000']}
-          style={login_styles.gradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-        >
+        <View style={login_styles.gradient}>
           <BlurView intensity={20} style={login_styles.blurContainer}>
             <Animated.View
               style={[
@@ -230,7 +226,7 @@ const Login: React.FC<LoginProps> = ({
               ]}
             >
               <Image
-                source={require('../../assets/logo_partidos/logo_porti.png')}
+                source={require('../../assets/logo_partidos/LOGOTIPO VERTICAL.png')}
                 style={login_styles.logo}
               />
               <View style={login_styles.titleContainer}>
@@ -307,10 +303,7 @@ const Login: React.FC<LoginProps> = ({
                   style={login_styles.button}
                 >
                   <LinearGradient
-                    colors={[
-                      'rgba(255,255,255,0.15)',
-                      'rgba(255,255,255,0.05)',
-                    ]}
+                    colors={['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.05)']}
                     style={login_styles.buttonGradient}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
@@ -341,7 +334,7 @@ const Login: React.FC<LoginProps> = ({
               </View>
             </Animated.View>
           </BlurView>
-        </LinearGradient>
+        </View>
 
         <CustomModal
           visible={modalConfig.visible}
@@ -350,7 +343,7 @@ const Login: React.FC<LoginProps> = ({
           onClose={() => setModalConfig({ ...modalConfig, visible: false })}
         />
       </ScrollView>
-    </KeyboardAvoidingView>
+    </ImageBackground>
   )
 }
 

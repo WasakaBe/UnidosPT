@@ -39,7 +39,7 @@ const login_styles = StyleSheet.create({
   underline: {
     width: Responsivo(30),
     height: 3,
-    backgroundColor: '#4A90E2',
+    backgroundColor: '#750808',
     borderRadius: 2,
     marginTop: 8,
     shadowColor: '#4A90E2',
@@ -85,6 +85,7 @@ const login_styles = StyleSheet.create({
   },
   button: {
     width: Responsivo(40),
+
     borderRadius: 12,
     overflow: 'hidden',
     elevation: 8,
@@ -122,7 +123,7 @@ const login_styles = StyleSheet.create({
   },
   link: {
     width: Responsivo(15),
-    color: '#4A90E2',
+    color: '#fff',
     fontSize: Responsivo(1.5),
     textDecorationLine: 'underline',
   },

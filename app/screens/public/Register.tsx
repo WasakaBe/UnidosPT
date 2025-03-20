@@ -28,6 +28,7 @@ import { useRouter } from 'expo-router'
 import login_styles from '@/app/styles/loginStyle'
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { Picker } from '@react-native-picker/picker'
+import { ImageBackground } from 'react-native'
 
 export default function Register() {
   const router = useRouter()
@@ -237,20 +238,15 @@ export default function Register() {
   }, [])
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    <ImageBackground
+      source={require('../../assets/fondo_partidos/unidos_pt.png')}
       style={login_styles.container}
     >
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         keyboardShouldPersistTaps="handled"
       >
-        <LinearGradient
-          colors={['#0A1931', '#0A1931', '#000000']}
-          style={login_styles.gradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-        >
+        <View style={login_styles.gradient}>
           <BlurView intensity={20} style={login_styles.blurContainer}>
             <Animated.View
               style={[
@@ -503,9 +499,9 @@ export default function Register() {
             message={modalMessage}
             onClose={() => setModalVisible(false)}
           />
-        </LinearGradient>
+        </View>
       </ScrollView>
-    </KeyboardAvoidingView>
+    </ImageBackground>
   )
 }
 
