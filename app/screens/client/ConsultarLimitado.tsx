@@ -24,6 +24,7 @@ import noticias_styles from '@/app/styles/noticiasStyle'
 import consulta_saldo_styles from '@/app/styles/consultarSaldoStyle'
 import LoadingSpinner from '@/app/components/loadingSpinner'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import promociones_descuentos_styles from '@/app/styles/promocionesDescuentosStyle'
 
 // Interfaces para TypeScript
 interface Plan {
@@ -278,11 +279,21 @@ export default function ConsultarLimitado() {
           <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
           <Text style={noticias_styles.backText}>Cerrar Sesión</Text>
         </TouchableOpacity>
-        <Text style={noticias_styles.tituloNoticia}>Consultar Saldo </Text>
-        <Image
-          source={require('../../assets/logo_partidos/unidosPt.png')}
-          style={noticias_styles.logo}
-        />
+
+        {/* Logo del Partido */}
+        <View style={noticias_styles.Backlogo}>
+          <Image
+            source={require('../../assets/logo_partidos/unidosPt.png')}
+            style={noticias_styles.logo}
+          />
+        </View>
+      </View>
+
+      <View>
+        <Text style={promociones_descuentos_styles.txtPromo}>
+          CONSULTAR SALDO
+        </Text>
+        <View style={dashboard_styles.divider} />
       </View>
 
       <Text style={consulta_saldo_styles.username}>
