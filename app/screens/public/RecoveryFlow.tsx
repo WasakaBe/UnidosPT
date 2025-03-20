@@ -1,4 +1,4 @@
-import { API_URL } from '@env'
+const API_URL = process.env.EXPO_PUBLIC_API_URL
 import React, { useState, useRef } from 'react'
 import {
   View,
@@ -112,7 +112,7 @@ export default function RecoveryFlow() {
         setModalType('error')
         setModalMessage(data.message || 'Ocurrió un error inesperado.')
         setModalVisible(true)
-        setInputValue('')
+ 
       }
     } catch (error) {
       console.log('Error en la solicitud:', error)

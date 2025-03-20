@@ -1,4 +1,4 @@
-import { API_URL } from '@env'
+const API_URL = process.env.EXPO_PUBLIC_API_URL
 import React, { useEffect, useState } from 'react'
 import {
   View,
@@ -33,6 +33,7 @@ import reporte_styles from '@/app/styles/reporteStyle'
 import conectate_styles from '@/app/styles/conectateStyle'
 //interfaces
 import { Post, Comment } from '@/app/utils/interface'
+import promociones_descuentos_styles from '@/app/styles/promocionesDescuentosStyle'
 
 export default function Conectate() {
   const router = useRouter()
@@ -439,15 +440,20 @@ export default function Conectate() {
           onPress={() => router.back()}
         >
           <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
-          <Text style={noticias_styles.backText}>Regresar</Text>
         </TouchableOpacity>
-        <Text style={noticias_styles.tituloNoticia}>Conéctate</Text>
 
         {/* Logo del Partido */}
-        <Image
-          source={require('../../assets/logo_partidos/unidosPt.png')}
-          style={noticias_styles.logo}
-        />
+        <View style={noticias_styles.Backlogo}>
+          <Image
+            source={require('../../assets/logo_partidos/unidosPt.png')}
+            style={noticias_styles.logo}
+          />
+        </View>
+      </View>
+
+      <View>
+        <Text style={promociones_descuentos_styles.txtPromo}>CONECTATE</Text>
+        <View style={dashboard_styles.divider} />
       </View>
       {/* Botón flotante "Crear post" */}
       <TouchableOpacity

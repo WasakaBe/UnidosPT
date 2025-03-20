@@ -20,6 +20,7 @@ import noticias_styles from '@/app/styles/noticiasStyle'
 import reporte_styles from '@/app/styles/reporteStyle'
 import recargas_dos_styles from '@/app/styles/recargas2Style'
 import dashboard_styles from '@/app/styles/dashboardStyle'
+import promociones_descuentos_styles from '@/app/styles/promocionesDescuentosStyle'
 
 interface Plan {
   cv_plan?: string
@@ -104,16 +105,20 @@ export default function Recargas2() {
           onPress={() => router.back()}
         >
           <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
-          <Text style={noticias_styles.backText}>Regresar</Text>
         </TouchableOpacity>
 
-        <Text style={noticias_styles.tituloNoticia}>Recargas</Text>
-
         {/* Logo del Partido */}
-        <Image
-          source={require('../../assets/logo_partidos/unidosPt.png')}
-          style={noticias_styles.logo}
-        />
+        <View style={noticias_styles.Backlogo}>
+          <Image
+            source={require('../../assets/logo_partidos/unidosPt.png')}
+            style={noticias_styles.logo}
+          />
+        </View>
+      </View>
+
+      <View>
+        <Text style={promociones_descuentos_styles.txtPromo}>RECARGA AQUI</Text>
+        <View style={dashboard_styles.divider} />
       </View>
       {/* formulario de recarga */}
       <View>

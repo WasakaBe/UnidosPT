@@ -1,6 +1,4 @@
-import { API_URL } from '@env'
-import * as dotenv from '@env'
-
+const API_URL = process.env.EXPO_PUBLIC_API_URL
 
 import { io, Socket } from 'socket.io-client'
 

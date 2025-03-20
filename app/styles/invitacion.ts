@@ -1,27 +1,40 @@
 import { StyleSheet } from 'react-native'
+import { Responsivo } from '../components/Responsivo'
 
 const invitacion_styles = StyleSheet.create({
   background: {
     flex: 1,
-    resizeMode: 'cover',
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: Responsivo(5),
+    justifyContent: 'space-evenly',
+  },
+  Containerlogo: {
+    width: Responsivo(10),
+    height: Responsivo(10),
   },
   logo: {
-    width: 250,
-    marginBottom: 20,
-    resizeMode: 'contain',
+    width: '100%',
+    height: '100%',
+    objectFit: 'fill',
   },
   title: {
-    fontSize: 18,
+    fontSize: Responsivo(1.9),
+    fontWeight: '400',
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: 30,
+    width: '100%',
+  },
+  titlespan: {
+    fontSize: Responsivo(2),
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
     marginBottom: 30,
+    fontFamily: 'Monserrat-Bold',
   },
   inputContainer: {
     flexDirection: 'row',
@@ -43,11 +56,11 @@ const invitacion_styles = StyleSheet.create({
   },
   button: {
     width: '100%',
+    maxWidth: 200,
     backgroundColor: '#000',
-    borderRadius: 8,
+    borderRadius: 50,
     paddingVertical: 12,
     alignItems: 'center',
-    marginBottom: 20,
   },
   buttonText: {
     fontSize: 16,

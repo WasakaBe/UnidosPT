@@ -1,4 +1,4 @@
-import { API_URL } from '@env'
+const API_URL = process.env.EXPO_PUBLIC_API_URL
 import React, { useEffect, useState } from 'react'
 import {
   View,
@@ -20,6 +20,7 @@ import useMediaAndLocation from '@/app/hooks/useMediaAndLocation'
 import dashboard_styles from '@/app/styles/dashboardStyle'
 import noticias_styles from '@/app/styles/noticiasStyle'
 import perfil_styles from '@/app/styles/perfilStyle'
+import promociones_descuentos_styles from '@/app/styles/promocionesDescuentosStyle'
 export default function Perfil() {
   const router = useRouter()
   const params = useLocalSearchParams()
@@ -165,16 +166,20 @@ export default function Perfil() {
             onPress={() => router.back()}
           >
             <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
-            <Text style={noticias_styles.backText}>Regresar</Text>
           </TouchableOpacity>
 
-          <Text style={noticias_styles.tituloNoticia}>Perfil </Text>
-
           {/* Logo del Partido */}
-          <Image
-            source={require('../../assets/logo_partidos/unidosPt.png')}
-            style={noticias_styles.logo}
-          />
+          <View style={noticias_styles.Backlogo}>
+            <Image
+              source={require('../../assets/logo_partidos/unidosPt.png')}
+              style={noticias_styles.logo}
+            />
+          </View>
+        </View>
+
+        <View>
+          <Text style={promociones_descuentos_styles.txtPromo}>PERFIL</Text>
+          <View style={dashboard_styles.divider} />
         </View>
 
         <View style={perfil_styles.header}>

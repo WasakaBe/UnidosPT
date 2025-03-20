@@ -36,6 +36,7 @@ import {
   fetchDepartments,
   createReport,
 } from '@/app/services/reporteService'
+import promociones_descuentos_styles from '@/app/styles/promocionesDescuentosStyle'
 
 interface Reporte {
   titulo: string
@@ -201,16 +202,22 @@ export default function Reporte() {
           onPress={() => router.back()}
         >
           <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
-          <Text style={noticias_styles.backText}>Regresar</Text>
         </TouchableOpacity>
 
-        <Text style={noticias_styles.tituloNoticia}> Reporte Ciudadano</Text>
-
         {/* Logo del Partido */}
-        <Image
-          source={require('../../assets/logo_partidos/unidosPt.png')}
-          style={noticias_styles.logo}
-        />
+        <View style={noticias_styles.Backlogo}>
+          <Image
+            source={require('../../assets/logo_partidos/unidosPt.png')}
+            style={noticias_styles.logo}
+          />
+        </View>
+      </View>
+
+      <View>
+        <Text style={promociones_descuentos_styles.txtPromo}>
+          REPORTE CIUDADANO
+        </Text>
+        <View style={dashboard_styles.divider} />
       </View>
 
       <View style={reporte_styles.container}>
@@ -246,7 +253,7 @@ export default function Reporte() {
                   </View>
                 </View>
 
-                <Text style={reporte_styles.title}>{item.titulo}</Text>
+                <Text style={reporte_styles.title}>{item.titulo} </Text>
 
                 <View style={reporte_styles.imageContainer}>
                   <Image

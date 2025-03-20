@@ -62,3 +62,6 @@ https://expo.dev/artifacts/eas/3JjMsfb4FvFGFNHd1rDhnH.aab
 ```sh
 https://expo.dev/accounts/alanwakaka/projects/UnidosPT/builds/c6ecff93-32d2-4bbe-bfc0-c298937a7bb8
 ```
+
+
+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

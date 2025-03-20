@@ -29,6 +29,7 @@ import {
 } from '@/app/services/directorioService'
 import { TextInput } from 'react-native-paper'
 import { Picker } from '@react-native-picker/picker'
+import promociones_descuentos_styles from '@/app/styles/promocionesDescuentosStyle'
 
 export default function Directorio() {
   const router = useRouter()
@@ -125,7 +126,7 @@ export default function Directorio() {
   return (
     <ImageBackground
       source={getBackgroundByIdPartido(Number(idPartido))}
-      style={dashboard_styles.background}
+      style={promociones_descuentos_styles.background}
     >
       <View style={noticias_styles.subcontainer}>
         {/* Botón de regresar */}
@@ -143,24 +144,28 @@ export default function Directorio() {
           }}
         >
           <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
-          <Text style={noticias_styles.backText}>Regresar</Text>
         </TouchableOpacity>
 
-        <Text style={noticias_styles.tituloNoticia}>
-          Directorio de Servicios
-        </Text>
-
         {/* Logo del Partido */}
-        <Image
-          source={require('../../assets/logo_partidos/unidosPt.png')}
-          style={noticias_styles.logo}
-        />
+        <View style={noticias_styles.Backlogo}>
+          <Image
+            source={require('../../assets/logo_partidos/unidosPt.png')}
+            style={noticias_styles.logo}
+          />
+        </View>
+      </View>
+
+      <View>
+        <Text style={promociones_descuentos_styles.txtPromo}>
+          DIRECTORIO DE SERVICIOS
+        </Text>
+        <View style={dashboard_styles.divider} />
       </View>
 
       {/* SECCIÓN 1: Lista de Tipos de Servicios */}
       {/* SECCIÓN 1: Lista de Tipos de Servicios */}
       {!selectedService ? (
-        <View style={{ flex: 1, paddingHorizontal: 16 }}>
+        <View style={directorio_styles.seccionUno}>
           <View style={directorio_styles.busqueda}>
             <View style={directorio_styles.busqueda2}>
               {/* 🔍 Barra de búsqueda */}
@@ -304,7 +309,9 @@ export default function Directorio() {
       />
 
       {/* Componente de Banners */}
-      <Banners idPartido={Number(idPartido)} />
+      <View style={promociones_descuentos_styles.backBanner}>
+        <Banners idPartido={Number(idPartido)} />
+      </View>
     </ImageBackground>
   )
 }

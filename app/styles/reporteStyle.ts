@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { Responsivo } from '../components/Responsivo'
 
 const reporte_styles = StyleSheet.create({
   container: {
@@ -55,14 +56,14 @@ const reporte_styles = StyleSheet.create({
     fontWeight: '600',
   },
   title: {
-    fontSize: 24,
+    fontSize: Responsivo(1.5),
     fontWeight: 'bold',
     color: '#000',
     marginBottom: 16,
   },
   imageContainer: {
     position: 'relative',
-    height: 300,
+    height: 200,
     borderRadius: 16,
     overflow: 'hidden',
     marginBottom: 16,
@@ -112,9 +113,9 @@ const reporte_styles = StyleSheet.create({
   },
   createReportButton: {
     position: 'absolute',
-    top: 50,
-    right: 10,
-    backgroundColor: '#857c0a',
+    top: Responsivo(10),
+    right: Responsivo(1),
+    backgroundColor: '#eee400',
     paddingVertical: 4,
     paddingHorizontal: 20,
     borderRadius: 30,
@@ -125,21 +126,7 @@ const reporte_styles = StyleSheet.create({
     elevation: 5,
     zIndex: 100,
   },
-  createReportButtonManual: {
-    position: 'absolute',
-    bottom: 150,
-    right: 20,
-    backgroundColor: '#857c0a',
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 30,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
-    zIndex: 100,
-  },
+
   createReportButtonText: {
     color: '#fff',
     fontSize: 16,

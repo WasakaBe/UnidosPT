@@ -1,4 +1,4 @@
-import { API_URL } from '@env'
+const API_URL = process.env.EXPO_PUBLIC_API_URL
 import React, { useState } from 'react'
 import {
   View,
@@ -117,7 +117,6 @@ export default function Invitacion() {
           onPress={() => router.back()}
         >
           <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
-          <Text style={noticias_styles.backText}>Regresar</Text>
         </TouchableOpacity>
       </View>
 
@@ -126,69 +125,73 @@ export default function Invitacion() {
         keyboardShouldPersistTaps="handled"
       >
         <View style={invitacion_styles.container}>
-          {/* Logo */}
-          <Image
-            source={require('../../assets/logo_partidos/unidosPt.png')}
-            style={invitacion_styles.logo}
-          />
-
-          {/* Título */}
-          <Text style={invitacion_styles.title}>
-            ¡Invita a tus familiares y amigos a formar parte!
-          </Text>
-
-          {/* Campos del formulario */}
-          <View style={invitacion_styles.inputContainer}>
-            <Ionicons
-              name="person"
-              size={24}
-              color="#999"
-              style={invitacion_styles.icon}
-            />
-            <TextInput
-              style={invitacion_styles.input}
-              placeholder="Nombre Completo"
-              placeholderTextColor="#999"
-              value={form.nombre}
-              onChangeText={(text) => handleInputChange('nombre', text)}
+          <View style={invitacion_styles.Containerlogo}>
+            {/* Logo */}
+            <Image
+              source={require('../../assets/logo_partidos/pt.jpg')}
+              style={invitacion_styles.logo}
             />
           </View>
 
-          <View style={invitacion_styles.inputContainer}>
-            <Ionicons
-              name="home"
-              size={24}
-              color="#999"
-              style={invitacion_styles.icon}
-            />
-            <TextInput
-              style={invitacion_styles.input}
-              placeholder="Comunidad/Colonia"
-              placeholderTextColor="#999"
-              value={form.comunidad_colonia}
-              onChangeText={(text) =>
-                handleInputChange('comunidad_colonia', text)
-              }
-            />
-          </View>
+          <View>
+            {/* Título */}
+            <Text style={invitacion_styles.title}>
+              ¡<Text style={invitacion_styles.titlespan}>Invita</Text> a tus
+              familiares y amigos a formar parte!
+            </Text>
 
-          <View style={invitacion_styles.inputContainer}>
-            <Ionicons
-              name="call"
-              size={24}
-              color="#999"
-              style={invitacion_styles.icon}
-            />
-            <TextInput
-              style={invitacion_styles.input}
-              placeholder="Teléfono"
-              placeholderTextColor="#999"
-              keyboardType="phone-pad"
-              value={form.telefono}
-              onChangeText={(text) => handleInputChange('telefono', text)}
-            />
-          </View>
+            {/* Campos del formulario */}
+            <View style={invitacion_styles.inputContainer}>
+              <Ionicons
+                name="person"
+                size={24}
+                color="#999"
+                style={invitacion_styles.icon}
+              />
+              <TextInput
+                style={invitacion_styles.input}
+                placeholder="Nombre Completo"
+                placeholderTextColor="#999"
+                value={form.nombre}
+                onChangeText={(text) => handleInputChange('nombre', text)}
+              />
+            </View>
 
+            <View style={invitacion_styles.inputContainer}>
+              <Ionicons
+                name="home"
+                size={24}
+                color="#999"
+                style={invitacion_styles.icon}
+              />
+              <TextInput
+                style={invitacion_styles.input}
+                placeholder="Comunidad/Colonia"
+                placeholderTextColor="#999"
+                value={form.comunidad_colonia}
+                onChangeText={(text) =>
+                  handleInputChange('comunidad_colonia', text)
+                }
+              />
+            </View>
+
+            <View style={invitacion_styles.inputContainer}>
+              <Ionicons
+                name="call"
+                size={24}
+                color="#999"
+                style={invitacion_styles.icon}
+              />
+              <TextInput
+                style={invitacion_styles.input}
+                placeholder="Teléfono"
+                placeholderTextColor="#999"
+                keyboardType="phone-pad"
+                value={form.telefono}
+                onChangeText={(text) => handleInputChange('telefono', text)}
+              />
+            </View>
+          </View>
           {/* Botón enviar */}
           <TouchableOpacity
             style={invitacion_styles.button}

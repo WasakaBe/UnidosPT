@@ -1,4 +1,4 @@
-import { API_URL } from '@env'
+const API_URL = process.env.EXPO_PUBLIC_API_URL
 import React, { useEffect, useState, useRef } from 'react'
 import {
   View,
@@ -11,10 +11,14 @@ import {
 
 import { connectSocket, leaveRoom } from '../auth/socket'
 import LoadingSpinner from './loadingSpinner'
-import * as dotenv from '@env'
+
 //interface
 import { Banner } from '../utils/interface'
 import { Responsivo } from './Responsivo'
+
+// Librerías de Expo
+import Animated from 'react-native-reanimated'
+
 const { width } = Dimensions.get('window')
 
 export default function Banners({ idPartido }: { idPartido: number }) {
@@ -113,19 +117,27 @@ export default function Banners({ idPartido }: { idPartido: number }) {
 
   return (
     <View>
-      <ScrollView
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        ref={scrollRef}
-        scrollEventThrottle={16}
-      >
-        {banners.map((item) => (
-          <View style={styles.bannerItem} key={item.id_imagen}>
-            <Image source={{ uri: item.ruta_imagen }} style={styles.image} />
-          </View>
-        ))}
-      </ScrollView>
+      {/* Carrusel con animaciones */}
+      <Animated.View>
+        <ScrollView
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          ref={scrollRef}
+          scrollEventThrottle={1}
+          contentOffset={{ x: currentIndex * width, y: 0 }}
+          onMomentumScrollEnd={(event) => {
+            const contentOffsetX = event.nativeEvent.contentOffset.x
+            setCurrentIndex(Math.floor(contentOffsetX / width))
+          }}
+        >
+          {banners.map((item, index) => (
+            <View style={styles.bannerItem} key={item.id_imagen}>
+              <Image source={{ uri: item.ruta_imagen }} style={styles.image} />
+            </View>
+          ))}
+        </ScrollView>
+      </Animated.View>
     </View>
   )
 }
@@ -137,15 +149,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bannerItem: {
-    width: width,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 16,
+    width: Responsivo(54),
+    height: Responsivo(15),
   },
   image: {
-    width: width * 0.9,
-    height: 200,
-    borderRadius: 10,
+    width: '100%',
+    height: '100%',
+    objectFit: 'fill',
   },
   errorText: {
     color: 'red',

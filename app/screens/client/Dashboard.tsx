@@ -1,4 +1,4 @@
-import { API_URL } from '@env'
+const API_URL = process.env.EXPO_PUBLIC_API_URL
 import React, { useEffect, useState } from 'react'
 
 import {
@@ -194,12 +194,16 @@ export default function Dashboard() {
         </View>
 
         <View style={dashboard_styles.profileContainer}>
-          <Image
-            source={{ uri: userPhoto }}
-            style={dashboard_styles.profileImage}
-          />
-          <Text style={dashboard_styles.userName}>¡Hola {userName}!</Text>
-          <Text style={dashboard_styles.phoneNumber}>{phoneNumber}</Text>
+          <View style={dashboard_styles.profileContainerImage}>
+            <Image
+              source={{ uri: userPhoto }}
+              style={dashboard_styles.profileImage}
+            />
+          </View>
+          <View style={dashboard_styles.profileContainerText}>
+            <Text style={dashboard_styles.userName}>¡Hola {userName}!</Text>
+            <Text style={dashboard_styles.phoneNumber}>{phoneNumber}</Text>
+          </View>
         </View>
         <View style={dashboard_styles.divider} />
         <View>
@@ -207,10 +211,7 @@ export default function Dashboard() {
           {idUsuario !== 7 ? (
             <View style={dashboard_styles.buttonRow}>
               <TouchableOpacity
-                style={[
-                  dashboard_styles.mainButton,
-                  { backgroundColor: partidoColors.primary },
-                ]}
+                style={dashboard_styles.mainButton}
                 onPress={() => {
                   if (idUsuario && idPartido) {
                     router.push({
@@ -229,18 +230,14 @@ export default function Dashboard() {
               >
                 <View style={dashboard_styles.headerIcons}>
                   <Image
-                    source={require('../../assets/iconos/NOTICIASPT.png')}
+                    source={require('../../assets/botones/BOTON NOTICIAS PT.png')}
                     style={dashboard_styles.iconos}
                   />
                 </View>
-                <Text style={dashboard_styles.buttonText}>Noticias </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[
-                  dashboard_styles.mainButton,
-                  { backgroundColor: partidoColors.primary },
-                ]}
+                style={dashboard_styles.mainButton}
                 onPress={() => {
                   if (idUsuario && idPartido) {
                     router.push({
@@ -259,13 +256,10 @@ export default function Dashboard() {
               >
                 <View style={dashboard_styles.headerIcons}>
                   <Image
-                    source={require('../../assets/iconos/REPORTECIUDADANO.png')}
+                    source={require('../../assets/botones/BOTON REPORTE CIUDADANO.png')}
                     style={dashboard_styles.iconos}
                   />
                 </View>
-                <Text style={dashboard_styles.buttonText}>
-                  Reporte ciudadano
-                </Text>
               </TouchableOpacity>
             </View>
           ) : (
@@ -282,7 +276,7 @@ export default function Dashboard() {
                   onPress={() => {
                     if (idUsuario && idPartido) {
                       router.push({
-                        pathname: '/screens/client/Promociones',
+                        pathname: '/screens/client/PromocionesDescuentos',
                         params: {
                           idUsuario: idUsuario.toString(),
                           idPartido: idPartido.toString(),
@@ -295,15 +289,12 @@ export default function Dashboard() {
                     }
                   }}
                 >
-                  <View style={dashboard_styles.headerIcons}>
+                  <View style={dashboard_styles.headerIcons2}>
                     <Image
-                      source={require('../../assets/iconos/PROMOCIONESYDESCUENTOS.png')}
+                      source={require('../../assets/botones/BOTON PROMOCIONES Y DESCUENTOS.png')}
                       style={dashboard_styles.iconos}
                     />
                   </View>
-                  <Text style={dashboard_styles.secondaryButtonText}>
-                    Promociones y descuentos
-                  </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={dashboard_styles.secondaryButton}
@@ -323,15 +314,12 @@ export default function Dashboard() {
                     }
                   }}
                 >
-                  <View style={dashboard_styles.headerIcons}>
+                  <View style={dashboard_styles.headerIcons2}>
                     <Image
-                      source={require('../../assets/iconos/DIRECTORIODESERVICIOS.png')}
+                      source={require('../../assets/botones/BOTON DIRECTORIO DE SERVICIOS.png')}
                       style={dashboard_styles.iconos}
                     />
                   </View>
-                  <Text style={dashboard_styles.secondaryButtonText}>
-                    Directorio Servicios
-                  </Text>
                 </TouchableOpacity>
               </>
             ) : (
@@ -358,15 +346,12 @@ export default function Dashboard() {
                     }
                   }}
                 >
-                  <View style={dashboard_styles.headerIcons}>
+                  <View style={dashboard_styles.headerIcons2}>
                     <Image
-                      source={require('../../assets/iconos/CONECTATE.png')}
+                      source={require('../../assets/botones/BOTON CONECTATE.png')}
                       style={dashboard_styles.iconos}
                     />
                   </View>
-                  <Text style={dashboard_styles.secondaryButtonText}>
-                    Conéctate
-                  </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -387,15 +372,12 @@ export default function Dashboard() {
                     }
                   }}
                 >
-                  <View style={dashboard_styles.headerIcons}>
+                  <View style={dashboard_styles.headerIcons2}>
                     <Image
-                      source={getLogoByIdPartido(userData?.id_partido)}
+                      source={require('../../assets/botones/BOTON INVITA AL PT.png')}
                       style={dashboard_styles.iconos}
                     />
                   </View>
-                  <Text style={dashboard_styles.secondaryButtonText}>
-                    Invita a ser parte de
-                  </Text>
                 </TouchableOpacity>
               </>
             ) : (
@@ -422,16 +404,14 @@ export default function Dashboard() {
                     }
                   }}
                 >
-                  <View style={dashboard_styles.headerIcons}>
+                  <View style={dashboard_styles.headerIcons2}>
                     <Image
-                      source={require('../../assets/iconos/RECARGAAQUI.png')}
+                      source={require('../../assets/botones/BOTON RECARGAS.png')}
                       style={dashboard_styles.iconos}
                     />
                   </View>
-                  <Text style={dashboard_styles.secondaryButtonText}>
-                    Recargas
-                  </Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity
                   style={dashboard_styles.secondaryButton}
                   onPress={() => {
@@ -452,15 +432,12 @@ export default function Dashboard() {
                     }
                   }}
                 >
-                  <View style={dashboard_styles.headerIcons}>
+                  <View style={dashboard_styles.headerIcons2}>
                     <Image
-                      source={require('../../assets/iconos/CONSULTAR SALDO.png')}
+                      source={require('../../assets/botones/BOTON CONSULTAR SALDO.png')}
                       style={dashboard_styles.iconos}
                     />
                   </View>
-                  <Text style={dashboard_styles.secondaryButtonText}>
-                    Consultar Saldo
-                  </Text>
                 </TouchableOpacity>
               </>
             ) : (
@@ -484,15 +461,12 @@ export default function Dashboard() {
                   }
                 }}
               >
-                <View style={dashboard_styles.headerIcons}>
+                <View style={dashboard_styles.headerIcons2}>
                   <Image
-                    source={require('../../assets/iconos/CONSULTAR SALDO.png')}
+                    source={require('../../assets/botones/BOTON CONSULTAR SALDO.png')}
                     style={dashboard_styles.iconos}
                   />
                 </View>
-                <Text style={dashboard_styles.secondaryButtonText}>
-                  Consultar Saldo
-                </Text>
               </TouchableOpacity>
             )}
           </View>

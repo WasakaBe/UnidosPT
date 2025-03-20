@@ -1,10 +1,11 @@
 import { Dimensions, StyleSheet } from 'react-native'
+import { Responsivo } from '../components/Responsivo'
 const { width } = Dimensions.get('window')
 const CARD_WIDTH = width * 0.92
 const noticias_styles = StyleSheet.create({
   tituloNoticia: {
     color: '#FFFFFF',
-    fontSize: 22,
+    fontSize: Responsivo(1.4),
     fontWeight: 'bold',
     width: 200,
     textAlign: 'center',
@@ -28,11 +29,14 @@ const noticias_styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 8,
   },
+  Backlogo: {
+    width: Responsivo(14),
+    height: Responsivo(3),
+  },
   logo: {
-    width: 100,
-    height: 20,
-    alignSelf: 'center',
-    marginBottom: 20,
+    width: '100%',
+    height: '100%',
+    objectFit: 'fill',
   },
   container: {
     width: CARD_WIDTH,

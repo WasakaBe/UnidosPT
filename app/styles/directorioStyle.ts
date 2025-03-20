@@ -1,26 +1,21 @@
 import { StyleSheet } from 'react-native'
+import { Responsivo } from '../components/Responsivo'
 
 const directorio_styles = StyleSheet.create({
   containerDirectorio: {
-    padding: 16,
-    alignItems: 'center',
+    flex: 1,
+    paddingHorizontal: Responsivo(1.5),
+    paddingVertical: Responsivo(1.5),
+    width: '100%',
+    maxWidth: 425,
+    alignSelf: 'center',
   },
-  sectionHeader: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginTop: 15,
-    marginBottom: 5,
+
+  seccionUno: {
+    paddingHorizontal: Responsivo(4),
+    flex: 1,
   },
-  sectionHeaderContainer: {
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-    gap: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
+
   errorText: {
     fontSize: 16,
     color: 'red',
@@ -29,14 +24,14 @@ const directorio_styles = StyleSheet.create({
   },
   listItem: {
     backgroundColor: '#FFD700',
-    paddingVertical: 12,
-    paddingHorizontal: 15,
+    paddingVertical: Responsivo(1),
+    paddingHorizontal: Responsivo(1),
     borderRadius: 8,
-    marginVertical: 5,
+    marginVertical: Responsivo(0.4),
     alignItems: 'center',
   },
   listItemText: {
-    fontSize: 16,
+    fontSize: Responsivo(1.5),
     fontWeight: 'bold',
     color: '#000',
   },

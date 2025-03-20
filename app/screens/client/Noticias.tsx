@@ -38,6 +38,7 @@ import {
 } from '@/app/services/noticiasService'
 
 import { Socket } from 'socket.io-client'
+import promociones_descuentos_styles from '@/app/styles/promocionesDescuentosStyle'
 let socket: Socket | null = null
 export default function Noticias() {
   const router = useRouter() // ✅ Reemplazo de `navigation`
@@ -149,16 +150,20 @@ export default function Noticias() {
           onPress={() => router.back()}
         >
           <FontAwesome name="arrow-left" size={18} color="#FFFFFF" />
-          <Text style={noticias_styles.backText}>Regresar</Text>
         </TouchableOpacity>
 
-        <Text style={noticias_styles.tituloNoticia}>Noticias </Text>
-
         {/* Logo del Partido */}
-        <Image
-          source={require('../../assets/logo_partidos/unidosPt.png')}
-          style={noticias_styles.logo}
-        />
+        <View style={noticias_styles.Backlogo}>
+          <Image
+            source={require('../../assets/logo_partidos/unidosPt.png')}
+            style={noticias_styles.logo}
+          />
+        </View>
+      </View>
+
+      <View>
+        <Text style={promociones_descuentos_styles.txtPromo}>NOTICIAS</Text>
+        <View style={dashboard_styles.divider} />
       </View>
 
       {/* Componente de Banners */}
