@@ -268,7 +268,7 @@ export default function ConsultarLimitado() {
 
   return (
     <ImageBackground
-      source={getBackgroundByIdPartido(Number(idPartido))}
+      source={require('../../assets/fondo_partidos/unidos_pt.png')}
       style={dashboard_styles.background}
     >
       <View style={noticias_styles.subcontainer}>
@@ -295,15 +295,14 @@ export default function ConsultarLimitado() {
         </Text>
         <View style={dashboard_styles.divider} />
       </View>
-
-      <Text style={consulta_saldo_styles.username}>
-        ¡Bienvenido!, {userName}
-      </Text>
-
       <ScrollView
         contentContainerStyle={consulta_saldo_styles.container}
         keyboardShouldPersistTaps="handled"
       >
+        <Text style={consulta_saldo_styles.username}>
+          ¡Bienvenido!, {userName}
+        </Text>
+
         <View style={consulta_saldo_styles.promoContainer}>
           <Image
             source={{ uri: urlImagen }}

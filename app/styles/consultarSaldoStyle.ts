@@ -1,6 +1,6 @@
-import { Dimensions, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { Responsivo } from '../components/Responsivo'
 
-const { width } = Dimensions.get('window')
 const consulta_saldo_styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -27,8 +27,8 @@ const consulta_saldo_styles = StyleSheet.create({
     elevation: 2,
   },
   promoImage: {
-    width: width * 0.9,
-    height: width * 0.4,
+    width: '100%',
+    height: 180,
     alignSelf: 'center',
   },
   card: {
@@ -43,7 +43,7 @@ const consulta_saldo_styles = StyleSheet.create({
     elevation: 5,
   },
   cardDescription: {
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
