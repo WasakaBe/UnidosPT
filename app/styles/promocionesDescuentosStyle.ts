@@ -14,7 +14,7 @@ const promociones_descuentos_styles = StyleSheet.create({
   backBanner: {
     backgroundColor: '#000',
     padding: Responsivo(2),
-    height: Responsivo(20),
+    height: Responsivo(18),
   },
   cardPromocion: {
     marginHorizontal: Responsivo(1.2),

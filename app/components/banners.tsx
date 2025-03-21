@@ -149,8 +149,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bannerItem: {
-    width: Responsivo(54),
-    height: Responsivo(15),
+    width: width,
+    height: Responsivo(10),
   },
   image: {
     width: '100%',
