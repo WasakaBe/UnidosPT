@@ -1,152 +1,86 @@
 import { StyleSheet } from 'react-native'
 
 const recargas_dos_styles = StyleSheet.create({
-  formContainer: {
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 14,
+  Caseta: {
+    padding: 20,
+    borderRadius: 12,
+    margin: 6,
+  },
+  CasetaTxt: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: '#fff',
+    marginBottom: 10,
+  },
+  SubCaseta: {
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 5,
     margin: 6,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.08,
+    shadowOffset: { width: 1, height: 6 },
+    shadowOpacity: 1,
     shadowRadius: 10,
     elevation: 2,
   },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#222',
-    marginBottom: 24,
-    textAlign: 'center',
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1.5,
-    borderColor: '#e1e1e1',
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    marginBottom: 15,
-    height: 50,
-  },
-  inputIcon: {
-    marginRight: 10,
-  },
-  input: {
-    flex: 1,
-    fontSize: 16,
-    color: '#333',
-    height: '100%',
-  },
-  clearButton: {
-    padding: 6,
-  },
-  validationText: {
-    color: '#e20613',
-    fontSize: 13,
-    marginBottom: 15,
-  },
-  button: {
-    height: 30,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  buttonDisabled: {
-    opacity: 0.7,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
-    fontWeight: '600',
-    marginRight: 6,
-  },
-  buttonTextDisabled: {
-    color: '#888',
-  },
-  infoContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 6,
-    padding: 12,
-    backgroundColor: '#f0f8ff',
-    borderRadius: 10,
-  },
-  infoText: {
-    marginLeft: 8,
-    color: '#444',
-    fontSize: 13,
-    flexShrink: 1,
-    width: '100%',
-  },
-  bottomBackground: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: 150,
-    backgroundColor: '#f0f5ff',
-    zIndex: -1,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-  },
-
-  //plan
-
-  pagerView: {
-    flex: 1,
-  },
-  page: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-  },
-  plansContainer: {
-    padding: 20,
-    flex: 1,
-  },
-  plansTitle: {
+  PlanesTxt: {
     fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
+    fontWeight: '500',
     color: '#fff',
     textAlign: 'center',
+    margin: 6,
   },
-  card: {
+  PlanItem: {
+    marginVertical: 5,
+    backgroundColor: '#f9f9f9',
+    borderRadius: 5,
+    elevation: 2,
+  },
+  PlanCard: {
+    padding: 10,
+    borderRadius: 5,
     backgroundColor: '#fff',
-    borderRadius: 12,
-    padding: 16,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 3,
-    width: '44%',
-    textAlign: 'center',
+    flexDirection: 'row',
+
+    alignItems: 'center',
   },
-  planImage: {
+  PlanImageContainer: {
+    width: 80,
+    height: 80,
+  },
+  PlanImage: {
     width: '100%',
-    height: 100,
-    borderRadius: 8,
-    marginBottom: 16,
+    height: '100%',
     objectFit: 'fill',
   },
-  planName: {
-    fontSize: 20,
+  PlanPrice: {
+    fontSize: 15,
     fontWeight: 'bold',
-    color: '#222',
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-  planPrice: {
-    fontSize: 18,
-    fontWeight: '600',
     color: '#0068d1',
-    textAlign: 'center',
-    marginBottom: 8,
   },
+  PlanName: {
+    fontSize: 18,
+    color: '#222',
+    fontWeight: 'bold',
+  },
+  PlanDetails: {
+    fontSize: 14,
+    color: '#444',
+    textAlign: 'center',
+    margin: 6,
+  },
+  PlanDetailsContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '70%',
+  },
+  PlaPriceDetailsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
   planDetails: {
     fontSize: 14,
     color: '#444',
@@ -154,36 +88,53 @@ const recargas_dos_styles = StyleSheet.create({
     width: '100%',
     textAlign: 'center',
   },
-  planTicket: {
-    fontSize: 12,
-    color: '#777',
-    marginTop: 8,
+  //modal
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semitransparente
   },
-  sectionTitle: {
+  modalContainer: {
+    width: '80%',
+    padding: 20,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  modalTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-    marginTop: 12,
-    marginBottom: 8,
-  },
-  buttonTicket: {
-    backgroundColor: '#0068d1',
-    padding: 8,
-    borderRadius: 12,
-    marginTop: 12,
-  },
-  buttonTxtTicket: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '500',
     textAlign: 'center',
+    width: '100%',
+    marginBottom: 10,
   },
-  verMasText: {
+  spann: {
     color: '#0068d1',
-    fontSize: 14,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: 6,
+  },
+  modalButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+  },
+  modalButton: {
+    padding: 10,
+    backgroundColor: '#4CAF50',
+    borderRadius: 5,
+    width: '40%',
+    alignItems: 'center',
+  },
+  modalButtonCancel: {
+    padding: 10,
+    backgroundColor: 'red',
+    borderRadius: 5,
+    width: '40%',
+    alignItems: 'center',
+  },
+  modalButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 })
 

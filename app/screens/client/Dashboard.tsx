@@ -391,10 +391,11 @@ export default function Dashboard() {
                   onPress={() => {
                     if (idUsuario && idPartido) {
                       router.push({
-                        pathname: '/screens/client/Recargas2',
+                        pathname: '/screens/client/Recarga',
                         params: {
                           idUsuario: idUsuario.toString(),
                           idPartido: idPartido.toString(),
+                          phoneNumber: encodeURIComponent(phoneNumber), // Número de teléfono codificado
                         },
                       })
                     } else {
