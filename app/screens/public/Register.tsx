@@ -158,9 +158,12 @@ export default function Register() {
           contraseña,
         }),
       })
+      console.log('response', response)
+      console.log('status', response.status)
+      console.log('statusText', response.statusText)
 
       const data = await response.json()
-      console.log(data)
+      console.log('resultados de data', data)
 
       if (response.ok) {
         setModalType('success')
