@@ -11,7 +11,6 @@ import {
 } from 'react-native'
 import { useFocusEffect, useRouter } from 'expo-router'
 import getBackgroundByIdPartido from '@/app/constants/fondoPartidos'
-import getLogoByIdPartido from '@/app/constants/logoPartidos'
 import colors from '@/app/constants/colors'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { decode as atob } from 'base-64'
